@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +12,11 @@ namespace TramScheduleData.Model
     {
 
         [Key]
-        public Guid StopId { get; set; }
+        public int StopId { get; set; }
         public string Name { get; set; }
         public string Details { get; set; }
+
+
 
         public Stop(string name, string details)
         {

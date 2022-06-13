@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -13,7 +12,8 @@ namespace TramScheduleData.Migrations
                 name: "Routes",
                 columns: table => new
                 {
-                    RouteId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RouteId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -25,10 +25,11 @@ namespace TramScheduleData.Migrations
                 name: "Stops",
                 columns: table => new
                 {
-                    StopId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StopId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Details = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RouteId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    RouteId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -44,19 +45,19 @@ namespace TramScheduleData.Migrations
                 name: "Trams",
                 columns: table => new
                 {
-                    TramId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TramId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    _routeRouteId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    RouteId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Trams", x => x.TramId);
                     table.ForeignKey(
-                        name: "FK_Trams_Routes__routeRouteId",
-                        column: x => x._routeRouteId,
+                        name: "FK_Trams_Routes_RouteId",
+                        column: x => x.RouteId,
                         principalTable: "Routes",
-                        principalColumn: "RouteId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "RouteId");
                 });
 
             migrationBuilder.CreateIndex(
@@ -65,9 +66,9 @@ namespace TramScheduleData.Migrations
                 column: "RouteId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Trams__routeRouteId",
+                name: "IX_Trams_RouteId",
                 table: "Trams",
-                column: "_routeRouteId");
+                column: "RouteId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

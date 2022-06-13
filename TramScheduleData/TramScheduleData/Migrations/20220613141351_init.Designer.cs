@@ -12,7 +12,7 @@ using TramScheduleData.Context;
 namespace TramScheduleData.Migrations
 {
     [DbContext(typeof(TramContext))]
-    [Migration("20220613092044_init")]
+    [Migration("20220613141351_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,9 +26,11 @@ namespace TramScheduleData.Migrations
 
             modelBuilder.Entity("TramScheduleData.Model.Route", b =>
                 {
-                    b.Property<Guid>("RouteId")
+                    b.Property<int>("RouteId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RouteId"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -41,9 +43,11 @@ namespace TramScheduleData.Migrations
 
             modelBuilder.Entity("TramScheduleData.Model.Stop", b =>
                 {
-                    b.Property<Guid>("StopId")
+                    b.Property<int>("StopId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StopId"), 1L, 1);
 
                     b.Property<string>("Details")
                         .IsRequired()
@@ -53,8 +57,8 @@ namespace TramScheduleData.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("RouteId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("RouteId")
+                        .HasColumnType("int");
 
                     b.HasKey("StopId");
 
@@ -65,20 +69,22 @@ namespace TramScheduleData.Migrations
 
             modelBuilder.Entity("TramScheduleData.Model.Tram", b =>
                 {
-                    b.Property<Guid>("TramId")
+                    b.Property<int>("TramId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TramId"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("_routeRouteId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("RouteId")
+                        .HasColumnType("int");
 
                     b.HasKey("TramId");
 
-                    b.HasIndex("_routeRouteId");
+                    b.HasIndex("RouteId");
 
                     b.ToTable("Trams");
                 });
@@ -92,13 +98,11 @@ namespace TramScheduleData.Migrations
 
             modelBuilder.Entity("TramScheduleData.Model.Tram", b =>
                 {
-                    b.HasOne("TramScheduleData.Model.Route", "_route")
+                    b.HasOne("TramScheduleData.Model.Route", "Route")
                         .WithMany()
-                        .HasForeignKey("_routeRouteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RouteId");
 
-                    b.Navigation("_route");
+                    b.Navigation("Route");
                 });
 
             modelBuilder.Entity("TramScheduleData.Model.Route", b =>
