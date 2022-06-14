@@ -38,45 +38,51 @@
             // 
             // DisplayRoutesButton
             // 
+            this.DisplayRoutesButton.BackColor = System.Drawing.SystemColors.Info;
             this.DisplayRoutesButton.Location = new System.Drawing.Point(12, 82);
             this.DisplayRoutesButton.Name = "DisplayRoutesButton";
             this.DisplayRoutesButton.Size = new System.Drawing.Size(137, 52);
             this.DisplayRoutesButton.TabIndex = 0;
             this.DisplayRoutesButton.Text = "Display routes";
-            this.DisplayRoutesButton.UseVisualStyleBackColor = true;
+            this.DisplayRoutesButton.UseVisualStyleBackColor = false;
             this.DisplayRoutesButton.Click += new System.EventHandler(this.DisplayRoutesButton_Click);
             // 
             // DisplayTramsButton
             // 
+            this.DisplayTramsButton.BackColor = System.Drawing.SystemColors.Info;
             this.DisplayTramsButton.Location = new System.Drawing.Point(12, 173);
             this.DisplayTramsButton.Name = "DisplayTramsButton";
             this.DisplayTramsButton.Size = new System.Drawing.Size(137, 52);
             this.DisplayTramsButton.TabIndex = 1;
             this.DisplayTramsButton.Text = "Display trams";
-            this.DisplayTramsButton.UseVisualStyleBackColor = true;
+            this.DisplayTramsButton.UseVisualStyleBackColor = false;
             this.DisplayTramsButton.Click += new System.EventHandler(this.DisplayTramsButton_Click);
             // 
             // DisplayStopsButton
             // 
+            this.DisplayStopsButton.BackColor = System.Drawing.SystemColors.Info;
             this.DisplayStopsButton.Location = new System.Drawing.Point(12, 264);
             this.DisplayStopsButton.Name = "DisplayStopsButton";
             this.DisplayStopsButton.Size = new System.Drawing.Size(137, 52);
             this.DisplayStopsButton.TabIndex = 2;
             this.DisplayStopsButton.Text = "Display stops";
-            this.DisplayStopsButton.UseVisualStyleBackColor = true;
+            this.DisplayStopsButton.UseVisualStyleBackColor = false;
             this.DisplayStopsButton.Click += new System.EventHandler(this.DisplayStopsButton_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe Script", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(228, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(241, 20);
+            this.label1.Size = new System.Drawing.Size(455, 38);
             this.label1.TabIndex = 5;
             this.label1.Text = "Welcome to the tram schedule app";
             // 
             // listBox1
             // 
+            this.listBox1.BackColor = System.Drawing.SystemColors.Control;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
             this.listBox1.Location = new System.Drawing.Point(228, 80);
@@ -87,6 +93,7 @@
             // 
             // listBox2
             // 
+            this.listBox2.BackColor = System.Drawing.SystemColors.Control;
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 20;
             this.listBox2.Location = new System.Drawing.Point(474, 80);
@@ -98,6 +105,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
@@ -105,8 +113,10 @@
             this.Controls.Add(this.DisplayStopsButton);
             this.Controls.Add(this.DisplayTramsButton);
             this.Controls.Add(this.DisplayRoutesButton);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.Name = "Form1";
             this.Text = "Tram Schedule";
+            this.TransparencyKey = System.Drawing.Color.White;
             this.ResumeLayout(false);
             this.PerformLayout();
 
