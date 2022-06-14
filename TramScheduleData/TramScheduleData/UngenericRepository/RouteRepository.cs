@@ -26,7 +26,6 @@ namespace TramScheduleData.UngenericRepository
         {
             _tramContext.Routes.Add(obj);
         }
-
         public void Save()
         {
             _tramContext.SaveChanges();
