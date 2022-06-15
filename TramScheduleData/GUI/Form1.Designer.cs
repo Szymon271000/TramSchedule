@@ -35,6 +35,8 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.AddAStopButton = new System.Windows.Forms.Button();
+            this.AddARouteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DisplayRoutesButton
@@ -110,12 +112,36 @@
             this.label2.Size = new System.Drawing.Size(0, 20);
             this.label2.TabIndex = 8;
             // 
+            // AddAStopButton
+            // 
+            this.AddAStopButton.BackColor = System.Drawing.SystemColors.Info;
+            this.AddAStopButton.Location = new System.Drawing.Point(228, 363);
+            this.AddAStopButton.Name = "AddAStopButton";
+            this.AddAStopButton.Size = new System.Drawing.Size(137, 52);
+            this.AddAStopButton.TabIndex = 9;
+            this.AddAStopButton.Text = "Add a stop";
+            this.AddAStopButton.UseVisualStyleBackColor = false;
+            this.AddAStopButton.Click += new System.EventHandler(this.AddAStopButton_Click);
+            // 
+            // AddARouteButton
+            // 
+            this.AddARouteButton.BackColor = System.Drawing.SystemColors.Info;
+            this.AddARouteButton.Location = new System.Drawing.Point(422, 363);
+            this.AddARouteButton.Name = "AddARouteButton";
+            this.AddARouteButton.Size = new System.Drawing.Size(137, 52);
+            this.AddARouteButton.TabIndex = 10;
+            this.AddARouteButton.Text = "Add a route";
+            this.AddARouteButton.UseVisualStyleBackColor = false;
+            this.AddARouteButton.Click += new System.EventHandler(this.AddARouteButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.AddARouteButton);
+            this.Controls.Add(this.AddAStopButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
@@ -141,5 +167,7 @@
         private ListBox listBox1;
         private ListBox listBox2;
         private Label label2;
+        private Button AddAStopButton;
+        private Button AddARouteButton;
     }
 }

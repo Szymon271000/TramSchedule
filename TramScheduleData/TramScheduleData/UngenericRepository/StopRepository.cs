@@ -32,6 +32,11 @@ namespace TramScheduleData.UngenericRepository
         {
             return _tramContext.Stops.AsNoTracking().Where(x => x.StopId == id).SingleOrDefault();
         }
+
+        public Stop GetStopByName(string name)
+        {
+            return _tramContext.Stops.AsNoTracking().Where(x => x.Name == name).SingleOrDefault();
+        }
         public void Save()
         {
             _tramContext.SaveChanges();
