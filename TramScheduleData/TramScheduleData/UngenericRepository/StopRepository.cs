@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,10 @@ namespace TramScheduleData.UngenericRepository
             _tramContext.Stops.Add(obj);
         }
 
+        public Stop GetStop(int id)
+        {
+            return _tramContext.Stops.AsNoTracking().Where(x => x.StopId == id).SingleOrDefault();
+        }
         public void Save()
         {
             _tramContext.SaveChanges();

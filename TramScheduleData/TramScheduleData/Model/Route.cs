@@ -27,5 +27,10 @@ namespace TramScheduleData.Model
             this.Name = name;
             Stops = new List<Stop>();
         }
+
+        public override string? ToString()
+        {
+            return $"{Name}";
+        }
     }
 }
