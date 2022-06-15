@@ -34,30 +34,45 @@ namespace GUI
         {
             label2.Text = String.Empty;
             listBox2.Items.Clear();
-            var selectedIndex = listBox1.SelectedIndex + 2; // w bazie pierwszy element ma id 2
+            var selectedIndex = listBox1.SelectedIndex + 2; // w bazie pierwszy route element ma id 2
             if (listBox1.SelectedItem is Route)
             {
-                label2.Text = "Stop details";
-                List<Stop> stops = _routeRepository.GetAllTramStop(selectedIndex).ToList();
-                foreach (Stop stop in stops)
-                {
-                    listBox2.Items.Add(stop);
-                }
+                DisplayStopsAfterClickingRoute(selectedIndex);
             }
             if (listBox1.SelectedItem is Tram)
             {
-                label2.Text = "Route details";
-                selectedIndex = listBox1.SelectedIndex + 3; // w bazie pierwszy element ma id 3
-                Tram tram = _tramRepository.GetRouteOfTram(selectedIndex);
-                listBox2.Items.Add(tram.Route.Name);
+                selectedIndex = listBox1.SelectedIndex + 3; // w bazie pierwszy tram element ma id 3
+                DisplayRouteAfterClickingTram(selectedIndex);
             }
             if (listBox1.SelectedItem is Stop)
             {
-                label2.Text = "Stop details";
-                selectedIndex = listBox1.SelectedIndex + 5; // w bazie pierwszy element ma id 5
-                Stop stop = _stopRepository.GetStop(selectedIndex);
-                listBox2.Items.Add(stop.Name);
-                listBox2.Items.Add(stop.Details);
+                selectedIndex = listBox1.SelectedIndex + 5; // w bazie pierwszy stop element ma id 5
+                DisplayStopDescriptionAfterClickingStop(selectedIndex);
+            }
+        }
+
+        private void DisplayStopDescriptionAfterClickingStop(int selectedIndex)
+        {
+            label2.Text = "Stop details";
+            Stop stop = _stopRepository.GetStop(selectedIndex);
+            listBox2.Items.Add(stop.Name);
+            listBox2.Items.Add(stop.Details);
+        }
+
+        private void DisplayRouteAfterClickingTram(int selectedIndex)
+        {
+            label2.Text = "Route details";
+            Tram tram = _tramRepository.GetRouteOfTram(selectedIndex);
+            listBox2.Items.Add(tram.Route.Name);
+        }
+
+        private void DisplayStopsAfterClickingRoute(int selectedIndex)
+        {
+            label2.Text = "Stop details";
+            List<Stop> stops = _routeRepository.GetAllTramStop(selectedIndex).ToList();
+            foreach (Stop stop in stops)
+            {
+                listBox2.Items.Add(stop);
             }
         }
 
@@ -98,6 +113,12 @@ namespace GUI
         {
             var addRouteWindow = new AddARouteWindow();
             addRouteWindow.ShowDialog();
+        }
+
+        private void EditARouteButton_Click(object sender, EventArgs e)
+        {
+            var editRouteWindow = new EditRouteWindow();
+            editRouteWindow.ShowDialog();
         }
     }
 }

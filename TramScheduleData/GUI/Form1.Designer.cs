@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.AddAStopButton = new System.Windows.Forms.Button();
             this.AddARouteButton = new System.Windows.Forms.Button();
+            this.EditARouteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DisplayRoutesButton
@@ -134,12 +135,24 @@
             this.AddARouteButton.UseVisualStyleBackColor = false;
             this.AddARouteButton.Click += new System.EventHandler(this.AddARouteButton_Click);
             // 
+            // EditARouteButton
+            // 
+            this.EditARouteButton.BackColor = System.Drawing.SystemColors.Info;
+            this.EditARouteButton.Location = new System.Drawing.Point(632, 363);
+            this.EditARouteButton.Name = "EditARouteButton";
+            this.EditARouteButton.Size = new System.Drawing.Size(137, 52);
+            this.EditARouteButton.TabIndex = 11;
+            this.EditARouteButton.Text = "Edit a route";
+            this.EditARouteButton.UseVisualStyleBackColor = false;
+            this.EditARouteButton.Click += new System.EventHandler(this.EditARouteButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.EditARouteButton);
             this.Controls.Add(this.AddARouteButton);
             this.Controls.Add(this.AddAStopButton);
             this.Controls.Add(this.label2);
@@ -169,5 +182,6 @@
         private Label label2;
         private Button AddAStopButton;
         private Button AddARouteButton;
+        private Button EditARouteButton;
     }
 }
