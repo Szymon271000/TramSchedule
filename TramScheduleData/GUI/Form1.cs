@@ -87,5 +87,17 @@ namespace GUI
                 listBox1.Items.Add(stop);
             }
         }
+
+        private void AddAStopButton_Click(object sender, EventArgs e)
+        {
+            var addStopWindow = new AddStopWindow();
+            addStopWindow.ShowDialog();
+        }
+
+        private void AddARouteButton_Click(object sender, EventArgs e)
+        {
+            var addRouteWindow = new AddARouteWindow();
+            addRouteWindow.ShowDialog();
+        }
     }
 }

@@ -38,6 +38,11 @@ namespace TramScheduleData.UngenericRepository
         {
             return _tramContext.Routes.Include(x=> x.Stops).AsNoTracking().Where(x=> x.RouteId == id).SingleOrDefault();
         }
+
+        public Route GetRouteByName(string name)
+        {
+            return _tramContext.Routes.AsNoTracking().Where(x => x.Name == name).SingleOrDefault();
+        }
         public void Save()
         {
             _tramContext.SaveChanges();
