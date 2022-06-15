@@ -34,20 +34,17 @@ namespace GUI
         {
             label2.Text = String.Empty;
             listBox2.Items.Clear();
-            var selectedIndex = listBox1.SelectedIndex + 2; // w bazie pierwszy route element ma id 2
-            if (listBox1.SelectedItem is Route)
+            if (listBox1.SelectedItem is Route route)
             {
-                DisplayStopsAfterClickingRoute(selectedIndex);
+                DisplayStopsAfterClickingRoute(route.RouteId);
             }
-            if (listBox1.SelectedItem is Tram)
-            {
-                selectedIndex = listBox1.SelectedIndex + 3; // w bazie pierwszy tram element ma id 3
-                DisplayRouteAfterClickingTram(selectedIndex);
+            if (listBox1.SelectedItem is Tram tram)
+            { 
+                DisplayRouteAfterClickingTram(tram.TramId);
             }
-            if (listBox1.SelectedItem is Stop)
+            if (listBox1.SelectedItem is Stop stop)
             {
-                selectedIndex = listBox1.SelectedIndex + 5; // w bazie pierwszy stop element ma id 5
-                DisplayStopDescriptionAfterClickingStop(selectedIndex);
+                DisplayStopDescriptionAfterClickingStop(stop.StopId);
             }
         }
 

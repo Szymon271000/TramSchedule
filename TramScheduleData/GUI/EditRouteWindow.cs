@@ -64,17 +64,26 @@ namespace GUI
 
         private void DeleteAStopButton_Click(object sender, EventArgs e)
         {
-            if (ListRouteBox.SelectedItem is Route && UpdatedRouteList.SelectedItem is Stop)
+            if (ListRouteBox.SelectedItem is Route route && UpdatedRouteList.SelectedItem is Stop stop)
             {
-                //To Do!
+                if(_routeRepository.RemoveStop(route.RouteId, stop.StopId))
+                {
+                    _routeRepository.Save();
+                    UpdatedRouteList.Items.Remove(stop);
+                }
             }
         }
 
         private void AddAStopButton_Click(object sender, EventArgs e)
         {
-            if (ListRouteBox.SelectedItem is Route && ListStopBox.SelectedItem is Stop)
+            if (ListRouteBox.SelectedItem is Route route && ListStopBox.SelectedItem is Stop stop)
             {
                 //To Do
+                if (_routeRepository.AddStop(route.RouteId, stop.StopId))
+                {
+                    _routeRepository.Save();
+                    UpdatedRouteList.Items.Add(stop);
+                }
             }
         }
     }

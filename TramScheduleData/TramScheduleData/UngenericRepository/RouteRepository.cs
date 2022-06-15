@@ -20,7 +20,7 @@ namespace TramScheduleData.UngenericRepository
         }
         public List<Route> GetAll()
         {
-            return _tramContext.Routes.ToList();
+            return _tramContext.Routes.Include(x => x.Stops).ToList();
         }
         public void Insert(Route obj)
         {
@@ -46,6 +46,44 @@ namespace TramScheduleData.UngenericRepository
         public void Save()
         {
             _tramContext.SaveChanges();
+        }
+
+        public bool RemoveStop(int routeId, int stopId)
+        {
+            var route = _tramContext.Routes.Include(x => x.Stops).FirstOrDefault(x => x.RouteId==routeId);
+            if(route == null)
+            {
+                return false;
+            }
+            var stop = route.Stops.FirstOrDefault(x => x.StopId==stopId);
+            if(stop == null)
+            {
+                return false;
+            }
+            var result = route.Stops.Remove(stop);
+            return result;
+        }
+
+        public bool AddStop(int routeId, int stopId)
+        {
+            var route = _tramContext.Routes.Include(x => x.Stops).FirstOrDefault(x => x.RouteId == routeId);
+            if (route == null)
+            {
+                return false;
+            }
+            var stop = route.Stops.FirstOrDefault(x => x.StopId == stopId);
+            if (stop != null)
+            {
+                return false;
+            }
+
+            stop = _tramContext.Stops.FirstOrDefault(x => x.StopId != stopId);
+            if (stop == null)
+            {
+                return false;
+            }
+            route.Stops.Add(stop);
+            return true;
         }
     }
 }
