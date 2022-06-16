@@ -72,6 +72,10 @@ namespace GUI
                     UpdatedRouteList.Items.Remove(stop);
                 }
             }
+            else
+            {
+                MessageBox.Show("Musisz zaznaczyc najpierw route i potem przystanek do skasowania");
+            }
         }
 
         private void AddAStopButton_Click(object sender, EventArgs e)
@@ -83,6 +87,14 @@ namespace GUI
                     _routeRepository.Save();
                     UpdatedRouteList.Items.Add(stop);
                 }
+                else
+                {
+                    MessageBox.Show("Dodanie nie zostalo zrealizowane, czy ten route nie ma juz tego przystanka?");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Musisz zaznaczyc najpierw route i potem przystanek do dodania");
             }
         }
     }

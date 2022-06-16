@@ -83,7 +83,7 @@ namespace TramScheduleData.UngenericRepository
                 return false;
             }
 
-            stop = _tramContext.Stops.FirstOrDefault(x => x.StopId != stopId);
+            stop = _tramContext.Stops.FirstOrDefault(x => x.StopId == stopId);
             if (stop == null)
             {
                 return false;
