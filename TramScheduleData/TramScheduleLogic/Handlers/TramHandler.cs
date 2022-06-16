@@ -19,6 +19,12 @@ namespace TramScheduleLogic
             _inputSystem = new ConsoleInputSystem();
         }
 
+        public TramHandler(TramRepository tramRepository, IInputSystem inputSystem)
+        {
+            _tramRepository = tramRepository;
+            _inputSystem = inputSystem;
+        }
+
         public Tram Add()
         {
             string name = _inputSystem.FetchStringValue("Name of the tram");

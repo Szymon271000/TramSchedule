@@ -19,6 +19,12 @@ namespace TramScheduleLogic
             _inputSystem = new ConsoleInputSystem();
         }
 
+        public StopHandler(StopRepository stopRepository, IInputSystem inputSystem)
+        {
+            _stopRepository = stopRepository;
+            _inputSystem = inputSystem;
+        }
+
         public Stop Add()
         {
             string nameofStop = _inputSystem.FetchStringValue("Name of the stop: ");

@@ -10,15 +10,30 @@ namespace TramScheduleData.Context
 {
     public class TramContext: DbContext
     {
+        private bool _isTest;
+
         public DbSet<Route> Routes { get; set; }
         public DbSet<Stop> Stops { get; set; }
 
         public DbSet<Tram> Trams { get; set; }
 
+        public TramContext()
+        {
+
+        }
+
+        public TramContext(DbContextOptions<TramContext> dbContextOptions, bool isTest = false) : base(dbContextOptions)
+        {
+            _isTest = isTest;
+    }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(
-                @"Server=(localdb)\mssqllocaldb;Database=TramSchedule;Integrated Security=True");
+            if(!_isTest)
+            {
+                optionsBuilder.UseSqlServer(
+                    @"Server=(localdb)\mssqllocaldb;Database=TramSchedule;Integrated Security=True");
+            }
         }
 
     }

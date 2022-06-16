@@ -18,6 +18,12 @@ namespace TramScheduleData.UngenericRepository
         {
             _tramContext = new TramContext();
         }
+
+        public RouteRepository(TramContext tramContext)
+        {
+            _tramContext = tramContext;
+        }
+
         public List<Route> GetAll()
         {
             return _tramContext.Routes.Include(x => x.Stops).ToList();

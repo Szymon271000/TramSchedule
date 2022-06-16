@@ -78,7 +78,6 @@ namespace GUI
         {
             if (ListRouteBox.SelectedItem is Route route && ListStopBox.SelectedItem is Stop stop)
             {
-                //To Do
                 if (_routeRepository.AddStop(route.RouteId, stop.StopId))
                 {
                     _routeRepository.Save();

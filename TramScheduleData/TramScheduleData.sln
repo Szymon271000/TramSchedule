@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TramScheduleData", "TramSch
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TramScheduleLogic", "TramScheduleLogic\TramScheduleLogic.csproj", "{996AE75C-D22E-4552-B86A-FB7D7834540C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{0E46139E-A29F-49D2-8684-BD8C544C5A0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GUI", "GUI\GUI.csproj", "{0E46139E-A29F-49D2-8684-BD8C544C5A0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TramScheduleTests", "TramScheduleTests\TramScheduleTests.csproj", "{C637A579-7B9E-40C5-8169-EB9277F1ADC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{0E46139E-A29F-49D2-8684-BD8C544C5A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E46139E-A29F-49D2-8684-BD8C544C5A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E46139E-A29F-49D2-8684-BD8C544C5A0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C637A579-7B9E-40C5-8169-EB9277F1ADC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C637A579-7B9E-40C5-8169-EB9277F1ADC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C637A579-7B9E-40C5-8169-EB9277F1ADC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C637A579-7B9E-40C5-8169-EB9277F1ADC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

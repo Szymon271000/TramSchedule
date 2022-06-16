@@ -20,6 +20,12 @@ namespace TramScheduleLogic
             _inputSystem = new ConsoleInputSystem();
         }
 
+        public RouteHandler(RouteRepository routeRepository, IInputSystem inputSystem)
+        {
+            _routeRepository = routeRepository;
+            _inputSystem = inputSystem;
+        }
+
         public Route Add()
         {
             string name = _inputSystem.FetchStringValue("Name of the route");
