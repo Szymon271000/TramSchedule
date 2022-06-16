@@ -29,7 +29,7 @@ namespace TramScheduleLogic
         {
             string nameofStop = _inputSystem.FetchStringValue("Name of the stop: ");
             string detailsofStop = _inputSystem.FetchStringValue("Details of the stop: ");
-            if (nameofStop == string.Empty || detailsofStop.Length < 4)
+            if (nameofStop == string.Empty)
             {
                 throw new ArgumentException();
             }

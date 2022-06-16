@@ -29,7 +29,7 @@ namespace TramScheduleLogic
         public Route Add()
         {
             string name = _inputSystem.FetchStringValue("Name of the route");
-            if (name ==string.Empty)
+            if (name == string.Empty)
             {
                 throw new ArgumentException();
             }
@@ -42,7 +42,7 @@ namespace TramScheduleLogic
         public void AddStop(Route route, Stop stop)
         {
             route.Stops.Add(stop);
-            _routeRepository.Save();
+            _routeRepository.Save();       
         }
     }
 }
