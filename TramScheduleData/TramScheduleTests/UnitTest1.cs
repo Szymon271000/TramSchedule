@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
+using System;
 using System.Linq;
 using TramScheduleData.Context;
 using TramScheduleData.UngenericRepository;
@@ -29,7 +30,7 @@ namespace TramScheduleTests
         }
 
         [Test]
-        public void AddingRouteToDatabaseCheckingIfItIsnotNull()
+        public void CreatingAndAddingRouteToDatabase()
         {
             string routeName = "South";
             AddRoute(routeName);
@@ -39,13 +40,14 @@ namespace TramScheduleTests
         }
 
         [Test]
-        public void AddingStopToDatabaseCheckingIfItIsNotNull()
+        public void CreatingAndAddingStopToDatabase()
         {
             string stopName = "AWF";
             AddStop(stopName);
 
             var stop = context.Stops.FirstOrDefault(x => x.Name == stopName);
             Assert.IsNotNull(stop);
+            Assert.IsTrue(1 == context.Stops.Count());
         }
 
         [Test]
@@ -65,7 +67,7 @@ namespace TramScheduleTests
         }
 
         [Test]
-        public void AddingTramToDatabaseAndCheckingIfItIsNotNull()
+        public void CreatingAndAddingTramToDatabase()
         {
             string tramName = "57";
             TramHandler tramHandler = new TramHandler(tramRepository, mockedInput);
