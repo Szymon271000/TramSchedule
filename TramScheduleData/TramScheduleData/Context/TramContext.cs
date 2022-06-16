@@ -10,7 +10,7 @@ namespace TramScheduleData.Context
 {
     public class TramContext: DbContext
     {
-        private bool _isTest;
+        private readonly bool _isTest;
 
         public DbSet<Route> Routes { get; set; }
         public DbSet<Stop> Stops { get; set; }

@@ -10,8 +10,8 @@ namespace TramScheduleLogic
 {
     public class TramHandler
     {
-        private TramRepository _tramRepository;
-        private IInputSystem _inputSystem;
+        private readonly TramRepository _tramRepository;
+        private readonly IInputSystem _inputSystem;
 
         public TramHandler()
         {

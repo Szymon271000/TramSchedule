@@ -40,14 +40,28 @@ namespace TramScheduleTests
         }
 
         [Test]
+        public void CreatingRouteWithEmptyNameToDatabaseReturnsArgumentException()
+        {
+            string routeName = "";
+            Assert.Throws<ArgumentException>(() => AddRoute(routeName));
+        }
+
+        [Test]
+        public void CreatingStopWithEmptyNameToDatabaseReturnsArgumentException()
+        {
+            string stopName = "";
+            Assert.Throws<ArgumentException>(() => AddStop(stopName));
+        }
+
+        [Test]
         public void CreatingAndAddingStopToDatabase()
         {
             string stopName = "AWF";
             AddStop(stopName);
 
             var stop = context.Stops.FirstOrDefault(x => x.Name == stopName);
+
             Assert.IsNotNull(stop);
-            Assert.IsTrue(1 == context.Stops.Count());
         }
 
         [Test]

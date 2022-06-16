@@ -6,9 +6,9 @@ namespace GUI
 {
     public partial class Form1 : Form
     {
-        private RouteRepository _routeRepository;
-        private StopRepository _stopRepository;
-        private TramRepository _tramRepository;
+        private readonly RouteRepository _routeRepository;
+        private readonly StopRepository _stopRepository;
+        private readonly TramRepository _tramRepository;
         public Form1()
         {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace GUI
             }
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             label2.Text = String.Empty;
             listBox2.Items.Clear();

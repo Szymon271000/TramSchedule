@@ -10,8 +10,8 @@ namespace TramScheduleLogic
 {
     public class StopHandler
     {
-        private StopRepository _stopRepository;
-        private IInputSystem _inputSystem;
+        private readonly StopRepository _stopRepository;
+        private readonly IInputSystem _inputSystem;
 
         public StopHandler()
         {
@@ -29,6 +29,10 @@ namespace TramScheduleLogic
         {
             string nameofStop = _inputSystem.FetchStringValue("Name of the stop: ");
             string detailsofStop = _inputSystem.FetchStringValue("Details of the stop: ");
+            if (nameofStop == string.Empty || detailsofStop.Length < 4)
+            {
+                throw new ArgumentException();
+            }
             var stop = new Stop(nameofStop, detailsofStop);
             _stopRepository.Insert(stop);
             _stopRepository.Save();

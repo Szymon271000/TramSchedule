@@ -11,8 +11,8 @@ namespace TramScheduleLogic
 {
     public class RouteHandler
     {
-        private RouteRepository _routeRepository;
-        private IInputSystem _inputSystem;
+        private readonly RouteRepository _routeRepository;
+        private readonly IInputSystem _inputSystem;
 
         public RouteHandler()
         {
@@ -29,6 +29,10 @@ namespace TramScheduleLogic
         public Route Add()
         {
             string name = _inputSystem.FetchStringValue("Name of the route");
+            if (name ==string.Empty)
+            {
+                throw new ArgumentException();
+            }
             var route = new Route(name);
             _routeRepository.Insert(route);
             _routeRepository.Save();

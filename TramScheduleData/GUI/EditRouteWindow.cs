@@ -14,8 +14,8 @@ namespace GUI
 {
     public partial class EditRouteWindow : Form
     {
-        private RouteRepository _routeRepository;
-        private StopRepository _stopRepository;
+        private readonly RouteRepository _routeRepository;
+        private readonly StopRepository _stopRepository;
 
         public EditRouteWindow()
         {

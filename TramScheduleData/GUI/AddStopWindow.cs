@@ -14,7 +14,7 @@ namespace GUI
 {
     public partial class AddStopWindow : Form
     {
-        private StopRepository _stopRepository;
+        private readonly StopRepository _stopRepository;
 
         public AddStopWindow()
         {

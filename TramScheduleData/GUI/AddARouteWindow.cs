@@ -14,7 +14,7 @@ namespace GUI
 {
     public partial class AddARouteWindow : Form
     {
-        private RouteRepository _routeRepository;
+        private readonly RouteRepository _routeRepository;
         public AddARouteWindow()
         {
             _routeRepository = new RouteRepository();
