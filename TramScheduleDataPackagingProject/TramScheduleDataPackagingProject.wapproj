@@ -78,5 +78,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GUI\GUI.csproj" />
+    <ProjectReference Include="..\TramScheduleData\TramScheduleData.csproj" />
+    <ProjectReference Include="..\TramScheduleLogic\TramScheduleLogic.csproj" />
+    <ProjectReference Include="..\TramScheduleTests\TramScheduleTests.csproj" />
   </ItemGroup>
 </Project>
