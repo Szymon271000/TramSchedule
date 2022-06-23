@@ -25,7 +25,7 @@ namespace TramScheduleData.Context
         public TramContext(DbContextOptions<TramContext> dbContextOptions, bool isTest = false) : base(dbContextOptions)
         {
             _isTest = isTest;
-    }
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

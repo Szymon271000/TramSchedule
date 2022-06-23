@@ -46,10 +46,9 @@ namespace GUI
 
         private void ListRouteBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedIndex = ListRouteBox.SelectedIndex + 2; // w bazie pierwszy element ma id 2
-            if (ListRouteBox.SelectedItem is Route)
+            if (ListRouteBox.SelectedItem is Route route)
             {
-                DisplayStopsAfterClickingRoute(selectedIndex);
+                DisplayStopsAfterClickingRoute(route.RouteId);
             }
         }
         private void DisplayStopsAfterClickingRoute(int selectedIndex)
